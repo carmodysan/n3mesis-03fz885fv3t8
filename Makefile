@@ -1,7 +1,7 @@
 # Variables
 DOCKER = docker
 DOCKER_COMPOSE = docker-compose
-EXEC = $(DOCKER) exec -w /srv/app n3mesis-03fz885fv3t8-php-1
+EXEC = $(DOCKER) exec -it -w /srv/app n3mesis-03fz885fv3t8-php-1
 PHP = $(EXEC) php
 COMPOSER = $(EXEC) composer
 NPM = $(EXEC) npm
@@ -29,3 +29,10 @@ docker-ps: ## List containers
 ## --- 🎻Composer ---
 composer-install: ## Install dependencies
 	$(COMPOSER) install --prefer-dist --no-autoloader --no-scripts
+
+## --- 🖥️NPM ---
+npm-install: ## Install node packages
+	$(NPM) install
+
+npm-run-dev: ## Npm run dev command
+	$(NPM) run dev

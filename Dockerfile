@@ -17,7 +17,7 @@ RUN xcaddy build \
 	--with github.com/dunglas/mercure/caddy \
 	--with github.com/dunglas/vulcain \
 	--with github.com/dunglas/vulcain/caddy
-
+	
 # Prod image
 FROM php:8.2-fpm-alpine AS app_php
 
@@ -43,6 +43,8 @@ RUN apk add --no-cache \
 		file \
 		gettext \
 		git \
+		nodejs \
+		npm \
 	;
 
 RUN set -eux; \
@@ -93,6 +95,8 @@ RUN set -eux; \
 		composer install --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress; \
 		composer clear-cache; \
     fi
+
+
 
 # copy sources
 COPY --link  . ./
