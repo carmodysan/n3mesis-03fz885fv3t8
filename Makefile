@@ -23,6 +23,9 @@ docker-start: ## Start app
 docker-stop: ## Stop app
 	$(DOCKER_COMPOSE) stop
 
+docker-ps: ## List containers
+	$(DOCKER_COMPOSE) ps
+
 ## --- 🎻Composer ---
 composer-install: ## Install dependencies
 	$(COMPOSER) install --prefer-dist --no-autoloader --no-scripts

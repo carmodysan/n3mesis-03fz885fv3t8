@@ -76,7 +76,7 @@ services:
   dbeaver:
     image: dbeaver/cloudbeaver
     container_name: n3mesis_03fz885fv3t8_dbeaver
-    restart: always
+    restart: unless-stopped
     depends_on:
       - database
     ports:
