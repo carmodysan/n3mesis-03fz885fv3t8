@@ -60,6 +60,7 @@ services:
 ###> doctrine/doctrine-bundle ###
   database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
+    container_name: n3mesis-03fz885fv3t8-database
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-app}
       # You should definitely change the password in production
@@ -70,6 +71,19 @@ services:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
+
+###> dockage/phppgadmin ###
+  dbeaver:
+    image: dbeaver/cloudbeaver
+    container_name: n3mesis_03fz885fv3t8_dbeaver
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 8978:8978
+    environment:
+      SERVER_HOST: database
+###< dockage/phppgadmin ###
 
 volumes:
   php_socket:
