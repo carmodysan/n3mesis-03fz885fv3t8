@@ -72,7 +72,7 @@ services:
       - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
 
-###> dockage/phppgadmin ###
+###> dbeaver/cloudbeaver ###
   dbeaver:
     image: dbeaver/cloudbeaver
     container_name: n3mesis_03fz885fv3t8_dbeaver
