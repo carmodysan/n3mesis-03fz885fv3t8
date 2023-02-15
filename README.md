@@ -12,6 +12,10 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 5. Run `docker compose down --remove-orphans` to stop the Docker containers.
 
+## Update the projet
+* Add a composer package for symfony : Run `docker exec container_name composer require mypackage`
+* Update the container by rebuild it : Run `docker-compose up --build`
+ 
 ## Features
 
 * Production, development and CI ready
